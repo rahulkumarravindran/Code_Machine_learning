@@ -7,15 +7,17 @@ Created on Fri Nov 12 19:30:13 2021
 
 #import needed library and modules
 from sklearn.model_selection import train_test_split,cross_val_score,ShuffleSplit
+from sklearn.preprocessing import StandardScaler
 import pandas as pd
 from sklearn.naive_bayes import GaussianNB
 from sklearn import svm,tree
 from sklearn.metrics import f1_score,accuracy_score,precision_score,confusion_matrix,recall_score
+from time import time
 
 def evaluate(y_pred,y_true,m_test):
     
     #Calculating the F1_score
-    f1=f1_score(y_true,y_pred,average=None)
+    f1=f1_score(y_true,y_pred,average='weighted',zero_division=1)
     
     #Calculating the accuracy
     Accuracy=accuracy_score(y_true,y_pred)
@@ -24,10 +26,10 @@ def evaluate(y_pred,y_true,m_test):
     ConfMatrix=confusion_matrix(y_true, y_pred)
     
     #Calculating precision
-    precision=precision_score(y_true,y_pred,average=None)
+    precision=precision_score(y_true,y_pred,average='macro',zero_division=1)
     
     #Calculating recall score
-    recall=recall_score(y_true,y_pred,average=None)
+    recall=recall_score(y_true,y_pred,average='macro',zero_division=1)
     
     return {'f1_score': f1, 'Accuracy':Accuracy,'ConfusionMatrix': ConfMatrix,"Precision": precision,"Recall" : recall}
     
@@ -43,7 +45,7 @@ def NaiveBayes(x_train,x_test,y_train,y_test,NameOfDR):
     (m_test,n_test)=x_test.shape
     
     #cross validation
-    cv = ShuffleSplit(n_splits=5, test_size=0.1, random_state=0)
+    cv = ShuffleSplit(n_splits=10, test_size=0.1, random_state=0)
     cv_score=cross_val_score(gnb,x_train.append(x_test),y_train.append(y_test),cv=cv)
 
     #Calculating the accuracy of the model by comparing the predicted labels and the true test labels
@@ -53,7 +55,7 @@ def NaiveBayes(x_train,x_test,y_train,y_test,NameOfDR):
     eval_results=evaluate(y_pred, y_test, m_test)
     
 
-    return print("Accuracy for the {} dataset and Naive Bayes Classifier:{}".format(NameOfDR,eval_results['Accuracy']))
+    return print("Accuracy for the {} dataset and Naive Bayes Classifier:{}".format(NameOfDR,cv_score.mean()))
 
 def SupportVectorMachine(x_train,x_test,y_train,y_test,NameOfDR):
 
@@ -67,11 +69,14 @@ def SupportVectorMachine(x_train,x_test,y_train,y_test,NameOfDR):
     (m_test,n_test)=x_test.shape
     
     #cross validation
-    cv = ShuffleSplit(n_splits=5, test_size=0.1, random_state=0)
+    cv = ShuffleSplit(n_splits=4, test_size=0.1, random_state=0)
     cv_score=cross_val_score(SVM,x_train.append(x_test),y_train.append(y_test),cv=cv)
 
     #Calculating the accuracy of the model by comparing the predicted labels and the true test labels
     Accuracy=100-((y_pred!=y_test).sum()/m_test)
+    
+    #Evaluating the model for F1_score, Accuracy, precision, Recall and Confusion matrix
+    eval_results=evaluate(y_pred, y_test, m_test)
 
     return print("Accuracy for the {} dataset and Support Vector Machine Classifier:{}".format(NameOfDR,cv_score.mean()))
 
@@ -81,22 +86,25 @@ def DecisionTree(x_train,x_test,y_train,y_test,NameOfDR):
     DT=tree.DecisionTreeClassifier()
     
     #predicting the labels using the model trained by train data
-    y_pred=DT.fit(x_train,y_train).predict(x_test)
+    y_pred=DT.fit(x_train.append(x_test),y_train.append(y_test)).predict(x_test)
 
     #Finding the shape of test data
     (m_test,n_test)=x_test.shape
     
     #cross validation
-    cv = ShuffleSplit(n_splits=5, test_size=0.1, random_state=0)
+    cv = ShuffleSplit(n_splits=10, test_size=0.1, random_state=0)
     cv_score=cross_val_score(DT,x_train.append(x_test),y_train.append(y_test),cv=cv)
 
     #Calculating the accuracy of the model by comparing the predicted labels and the true test labels
     Accuracy=100-((y_pred!=y_test).sum()/m_test)
+    
+    #Evaluating the model for F1_score, Accuracy, precision, Recall and Confusion matrix
+    eval_results=evaluate(y_pred, y_test, m_test)
 
     return print("Accuracy for the {} dataset and Decision Tree Classifier:{}".format(NameOfDR,cv_score.mean()))
 
 
-
+tic=time()
 
 #for easy viewing
 for i in range(2):
@@ -104,7 +112,7 @@ for i in range(2):
 print("-"*50)
 
 #read the data from the original CSV 
-data=pd.read_csv(r"D:\Windsor\Fourth semester\Applied Machine learning\Project\Datasets\Datasets\D13.csv",header=None)
+data=pd.read_csv(r"D:\Windsor\Fourth semester\Applied Machine learning\Project\Datasets\Datasets\D1.csv",header=None)
 
 #List of dimension reduced datasets
 DR_datasets={'Conformal Eigenmaps':r"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D13_CE.csv",'Maximum Variance Unfolding':r"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D13_MVU.csv", "Landmark MVU": r"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D13_LMVU.csv"}
@@ -117,8 +125,12 @@ data=data.loc[:,(data!=0).any(axis=0)]
 (m,n)=data.shape
 
 #Separating the data and the labels
-x=data.loc[:,:n-1]
-y=data.loc[:,n]
+x=data.loc[:,:n-2]
+y=data.loc[:,n-1]
+
+#Scale the data
+scaler=StandardScaler()
+#x=pd.Series(scaler.fit_transform(x).reshape(,1))
 
 #The list of classifiers
 listOfClassifiers={'Naive Bayes':NaiveBayes, 'Support Vector Machine':SupportVectorMachine, "Decision Tree":DecisionTree}
@@ -147,9 +159,9 @@ for i in listOfClassifiers:
         (m_dr,n_dr)=data_dr.shape
         
         #Separating the data and the labels
-        x_dr=data_dr.loc[:,:n_dr-1]
-        y_dr=y[0:m_dr]
-        
+        x_dr=data_dr.loc[:,:n_dr-2]
+        y_dr=data_dr.loc[:,n_dr-1]
+        #y_dr=y[1:m_dr+1]
         
         ##For the Dimension Reduced Dataset
         #Splitting the data into test and train data
@@ -163,5 +175,6 @@ for i in listOfClassifiers:
     print()
         
         
-    
+toc=time()
+print("Time Taken: {} mins".format((toc-tic)/60))
     
