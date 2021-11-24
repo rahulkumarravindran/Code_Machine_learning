@@ -7,9 +7,9 @@ Created on Fri Nov 12 19:30:13 2021
 
 #import needed library and modules
 from sklearn.model_selection import train_test_split,cross_val_score,ShuffleSplit
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler,OneHotEncoder
 import pandas as pd
-from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import GaussianNB,MultinomialNB
 from sklearn import svm,tree
 from sklearn.metrics import f1_score,accuracy_score,precision_score,confusion_matrix,recall_score
 from time import time
@@ -46,10 +46,10 @@ def NaiveBayes(x_train,x_test,y_train,y_test,NameOfDR):
     
     #cross validation
     cv = ShuffleSplit(n_splits=10, test_size=0.1, random_state=0)
-    cv_score=cross_val_score(gnb,x_train.append(x_test),y_train.append(y_test),cv=cv)
+    cv_score=cross_val_score(gnb,x_train,y_train,cv=cv)
 
     #Calculating the accuracy of the model by comparing the predicted labels and the true test labels
-    Accuracy=100-((y_pred!=y_test).sum()/m_test)
+    #Accuracy=100-((y_pred!=y_test).sum()/m_test)
     
     #Evaluating the model for F1_score, Accuracy, precision, Recall and Confusion matrix
     eval_results=evaluate(y_pred, y_test, m_test)
@@ -60,7 +60,7 @@ def NaiveBayes(x_train,x_test,y_train,y_test,NameOfDR):
 def SupportVectorMachine(x_train,x_test,y_train,y_test,NameOfDR):
 
     #Initializing the Support Vector Machine classifier object
-    SVM=svm.SVC()
+    SVM=svm.SVC(C=10,gamma=1,kernel='rbf')
 
     #predicting the labels using the model trained by train data
     y_pred=SVM.fit(x_train,y_train).predict(x_test)
@@ -70,10 +70,10 @@ def SupportVectorMachine(x_train,x_test,y_train,y_test,NameOfDR):
     
     #cross validation
     cv = ShuffleSplit(n_splits=4, test_size=0.1, random_state=0)
-    cv_score=cross_val_score(SVM,x_train.append(x_test),y_train.append(y_test),cv=cv)
+    cv_score=cross_val_score(SVM,x_train,y_train,cv=cv)
 
     #Calculating the accuracy of the model by comparing the predicted labels and the true test labels
-    Accuracy=100-((y_pred!=y_test).sum()/m_test)
+    #Accuracy=100-((y_pred!=y_test).sum()/m_test)
     
     #Evaluating the model for F1_score, Accuracy, precision, Recall and Confusion matrix
     eval_results=evaluate(y_pred, y_test, m_test)
@@ -86,17 +86,17 @@ def DecisionTree(x_train,x_test,y_train,y_test,NameOfDR):
     DT=tree.DecisionTreeClassifier()
     
     #predicting the labels using the model trained by train data
-    y_pred=DT.fit(x_train.append(x_test),y_train.append(y_test)).predict(x_test)
+    y_pred=DT.fit(x_train,y_train).predict(x_test)
 
     #Finding the shape of test data
     (m_test,n_test)=x_test.shape
     
     #cross validation
     cv = ShuffleSplit(n_splits=10, test_size=0.1, random_state=0)
-    cv_score=cross_val_score(DT,x_train.append(x_test),y_train.append(y_test),cv=cv)
+    cv_score=cross_val_score(DT,x_train,y_train,cv=cv)
 
     #Calculating the accuracy of the model by comparing the predicted labels and the true test labels
-    Accuracy=100-((y_pred!=y_test).sum()/m_test)
+    #Accuracy=100-((y_pred!=y_test).sum()/m_test)
     
     #Evaluating the model for F1_score, Accuracy, precision, Recall and Confusion matrix
     eval_results=evaluate(y_pred, y_test, m_test)
@@ -112,10 +112,10 @@ for i in range(2):
 print("-"*50)
 
 #read the data from the original CSV 
-data=pd.read_csv(r"D:\Windsor\Fourth semester\Applied Machine learning\Project\Datasets\Datasets\D13.csv",header=None)
+data=pd.read_csv(r"D:\Windsor\Fourth semester\Applied Machine learning\Project\Datasets\Datasets\D1.csv",header=None)
 
 #List of dimension reduced datasets
-DR_datasets={'Conformal Eigenmaps':r"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D13_CE.csv",'Maximum Variance Unfolding':r"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D13_MVU.csv", "Landmark MVU": r"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D13_LMVU.csv"}
+DR_datasets={'Conformal Eigenmaps':r"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D1_CE.csv",'Maximum Variance Unfolding':r"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D1_MVU.csv", "Landmark MVU": r"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D1_LMVU.csv"}
 
 #Data preprocessing (Filling missing values and removing empty columns)
 data=data.fillna(0)
@@ -125,12 +125,16 @@ data=data.loc[:,(data!=0).any(axis=0)]
 (m,n)=data.shape
 
 #Separating the data and the labels
-x=data.iloc[:,:-2]
-y=data.iloc[:,-1]
+x=data.iloc[:,:-1]
+y=data.iloc[:,-1:]
 
 #Scale the data
 scaler=StandardScaler()
 x=scaler.fit_transform(x)
+
+#Encoding the labels
+#enc=OneHotEncoder(sparse=False)
+#y=enc.fit_transform(y)
 
 #The list of classifiers
 listOfClassifiers={'Naive Bayes':NaiveBayes, 'Support Vector Machine':SupportVectorMachine, "Decision Tree":DecisionTree}

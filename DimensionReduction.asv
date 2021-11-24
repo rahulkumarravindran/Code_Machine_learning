@@ -1,5 +1,5 @@
 %Reading the data from the dataset csv file
-data=readmatrix("D:\Windsor\Fourth semester\Applied Machine learning\Project\Datasets\Datasets\D3.csv");
+data=readmatrix("D:\Windsor\Fourth semester\Applied Machine learning\Project\Datasets\Datasets\D2.csv");
 
 
 %Getting the size of the data matrix
@@ -75,7 +75,7 @@ end
 mappedData(:,n_mapped+1)=data_LMVU(:,n);
 
 %Writing the data to csv
-writematrix(mappedData,"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D3_LMVU.csv","Delimiter","comma");
+writematrix(mappedData,"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D2_LMVU.csv","Delimiter","comma");
 disp("The dimension reduced (Landmark Maximum Variance Unfolding) dataset has been written to a CSV file")
 
 
