@@ -1,5 +1,13 @@
 %Reading the data from the dataset csv file
-data=readmatrix("D:\Windsor\Fourth semester\Applied Machine learning\Project\Datasets\Datasets\D2.csv");
+data=readmatrix("D:\Windsor\Fourth semester\Applied Machine learning\Project\Datasets\Datasets\D3.csv");
+CE_Dir="D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D3_CE.csv";
+MVU_Dir="D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D3_MVU.csv";
+LMVU_Dir="D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D3_LMVU.csv";
+
+%No of output Dimensions 
+dim_CE=9;
+dim_MVU=9;
+dim_LMVU=6;
 
 %Getting the size of the data matrix
 [m,n]= size(data);
@@ -13,8 +21,7 @@ data_f = data_f(:,any(data_f));
 %Getting the size of the processed data matrix
 [m,n]= size(data_f);
 
-d=8;
-iter=round(d/3);
+iter=round(dim_CE-1/3);
 batch_size=round(n/iter)-1;
 idx=[];
 
@@ -95,7 +102,7 @@ temp=zeros(abs(m_transformed-m_labels),1);
 transformed_matrix(:,n_transformed+1)=[corres_labels;temp];
 
 %Writing the data to a CSV
-writematrix(transformed_matrix,"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D2_CE.csv","Delimiter","comma");
+writematrix(transformed_matrix,CE_Dir,"Delimiter","comma");
 disp("The dimension reduced (Conformal Eigenmaps) dataset has been written to a CSV file")
 
 %%%%%%%%%%%%%%
@@ -103,6 +110,14 @@ disp("The dimension reduced (Conformal Eigenmaps) dataset has been written to a 
 %Maximum Variance unfolding
 %%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%
+
+iter=round(dim_MVU-1/3);
+batch_size=round(n/iter)-1;
+idx=[];
+
+for i=1:iter
+    idx(i)=i*batch_size;
+end
 
 
 transformed_matrix=[];
@@ -167,7 +182,7 @@ temp=zeros(abs(m_transformed-m_labels),1);
 transformed_matrix(:,n_transformed+1)=[corres_labels;temp];
 
 %Writing the data to a CSV
-writematrix(transformed_matrix,"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D2_MVU.csv","Delimiter","comma");
+writematrix(transformed_matrix,MVU_Dir,"Delimiter","comma");
 disp("The dimension reduced (Maximum Variance Unfolding) dataset has been written to a CSV file")
 
 %%%%%%%%%%%%%%
@@ -175,6 +190,15 @@ disp("The dimension reduced (Maximum Variance Unfolding) dataset has been writte
 %Landmark Maximum Variance unfolding
 %%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%
+
+iter=round(dim_LMVU+2/3);
+batch_size=round(n/iter)-1;
+idx=[];
+
+for i=1:iter
+    idx(i)=i*batch_size;
+end
+
 
 TotalOutputRows=1000;
 data_f=sortrows(data_f,n);
@@ -252,5 +276,5 @@ end
 transformed_matrix(:,n_transformed+1)=label;
 
 %Writing the data to a CSV
-writematrix(transformed_matrix,"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D1_LMVU.csv","Delimiter","comma");
+writematrix(transformed_matrix,LMVU_Dir,"Delimiter","comma");
 disp("The dimension reduced (Landmark Maximum Variance Unfolding) dataset has been written to a CSV file")
