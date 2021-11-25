@@ -1,6 +1,6 @@
 %Reading the data from the dataset csv file
-data=readmatrix("D:\Windsor\Fourth semester\Applied Machine learning\Project\Datasets\Datasets\D3.csv");
-
+data=readmatrix("D:\Windsor\Fourth semester\Applied Machine learning\Project\Datasets\Datasets\D5.csv");
+data=data(1:50,:);
 
 %Getting the size of the data matrix
 [m,n]= size(data);
@@ -14,7 +14,7 @@ data_f = data_f(:,any(data_f));
 %Getting the size of the processed data matrix
 [m,n]= size(data_f);
 
-%Dimension Reduction using CCA
+%Dimension Reduction using Conformal Eigenmaps
 [mappedData,mapping]= compute_mapping(data_f(:,1:n-1),"CCA",5,2);
 
 %some training examples may be ignored because there are not nearest
@@ -25,8 +25,9 @@ corres_labels=data_f(mapping.conn_comp,n);
 [m_mapped,n_mapped] = size(mappedData);
 mappedData(:,n_mapped+1)=corres_labels;
 
+
 %Writing the data to a CSV
-writematrix(mappedData,"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D3_CE.csv","Delimiter","comma");
+writematrix(mappedData,"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D5_CE.csv","Delimiter","comma");
 disp("The dimension reduced (Conformal Eigenmaps) dataset has been written to a CSV file")
 
 %Getting the size of the processed data matrix
@@ -44,7 +45,7 @@ corres_labels=data_f(mapping.conn_comp,n);
 mappedData(:,n_mapped+1)=corres_labels;
 
 %Writing the data to csv
-writematrix(mappedData,"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D3_MVU.csv","Delimiter","comma");
+writematrix(mappedData,"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D5_MVU.csv","Delimiter","comma");
 disp("The dimension reduced (Maximum Variance Unfolding) dataset has been written to a CSV file")
 
 %preprocessing data for LMVU
@@ -75,7 +76,7 @@ end
 mappedData(:,n_mapped+1)=data_LMVU(:,n);
 
 %Writing the data to csv
-writematrix(mappedData,"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D3_LMVU.csv","Delimiter","comma");
+writematrix(mappedData,"D:\Windsor\Fourth semester\Applied Machine learning\Project\Code_Machine_learning\DimensionReducedDataSet\D5_LMVU.csv","Delimiter","comma");
 disp("The dimension reduced (Landmark Maximum Variance Unfolding) dataset has been written to a CSV file")
 
 

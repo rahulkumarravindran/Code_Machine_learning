@@ -10,10 +10,31 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, LSTM,SimpleRNNCell
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split,cross_val_score,ShuffleSplit,KFold,StratifiedKFold,cross_validate
 from sklearn.preprocessing import StandardScaler,OneHotEncoder
+from sklearn.metrics import make_scorer, accuracy_score, precision_score, recall_score, f1_score
 
-data=pd.read_csv(r"D:\Windsor\Fourth semester\Applied Machine learning\Project\Datasets\Datasets\D13.csv",header=None)
+def evaluate(y_pred,y_true):
+    
+    #Calculating the F1_score
+    f1=f1_score(y_true,y_pred,average='weighted',zero_division=1)
+    
+    #Calculating the accuracy
+    Accuracy=accuracy_score(y_true,y_pred)
+    
+    #Calculating the confusion matrix
+    #ConfMatrix=confusion_matrix(y_true, y_pred)
+    
+    #Calculating precision
+    precision=precision_score(y_true,y_pred,average='macro',zero_division=1)
+    
+    #Calculating recall score
+    recall=recall_score(y_true,y_pred,average='macro',zero_division=1)
+    
+    return {'f1_score': f1, 'Accuracy':Accuracy,"Precision": precision,"Recall" : recall}
+    
+
+data=pd.read_csv(r"D:\Windsor\Fourth semester\Applied Machine learning\Project\Datasets\Datasets\D1.csv",header=None)
 
 #(m,n)=data.shape
 
@@ -50,13 +71,10 @@ y_test=tf.stack(y_test)
 
 #(m,n)= x_train.shape
 
-model.add(LSTM(128,input_shape=(1,n-2),activation='relu',return_sequences=True))
-#model.add(Dropout(0.2))
-model.add(Dense(128,activation='relu'))
-model.add(Dropout(0.2))
-model.add(Dense(32,activation='relu'))
-#model.add(Dropout(0.2))
-#no of classes in output
+model.add(LSTM(100,activation='relu',return_sequences=True))
+model.add(LSTM(50,activation='relu',return_sequences=True))
+model.add(LSTM(50,activation='relu',return_sequences=True))
+model.add(LSTM(50,activation='relu',return_sequences=True))
 model.add(Dense(n_y+1,activation='softmax'))
 
 opt=tf.keras.optimizers.Adam(learning_rate=1e-3,decay=1e-5)
@@ -64,8 +82,24 @@ opt=tf.keras.optimizers.Adam(learning_rate=1e-3,decay=1e-5)
 model.compile(loss='sparse_categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
 
 model.fit(x_train,y_train,epochs=10,validation_data=(x_test,y_test))
+
+"""scoring = {'accuracy' : make_scorer(accuracy_score), 
+           'precision' : make_scorer(precision_score),
+           'recall' : make_scorer(recall_score), 
+           'f1_score' : make_scorer(f1_score)}
+
+#cv = KFold(n_splits=10, shuffle=True, random_state=0)
+#cv_score=cross_validate(model,x_train,y_train,cv=cv,scoring=scoring)
+
+print(cv_score['accuracy'])
+"""
 y_pred=model.predict(x_test)
 """print(y_test)
 accuracy =list(y_pred!=y_test).sum()/len(y_test)
 print(accuracy)
 """
+
+result=evaluate(y_pred,y_test)
+
+print(result['Accuracy'])
+

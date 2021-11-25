@@ -6,7 +6,7 @@ Created on Fri Nov 12 19:30:13 2021
 """
 
 #import needed library and modules
-from sklearn.model_selection import train_test_split,cross_val_score,ShuffleSplit
+from sklearn.model_selection import train_test_split,cross_val_score,ShuffleSplit,KFold,StratifiedKFold
 from sklearn.preprocessing import StandardScaler,OneHotEncoder
 import pandas as pd
 from sklearn.naive_bayes import GaussianNB,MultinomialNB
@@ -45,7 +45,7 @@ def NaiveBayes(x_train,x_test,y_train,y_test,NameOfDR):
     (m_test,n_test)=x_test.shape
     
     #cross validation
-    cv = ShuffleSplit(n_splits=10, test_size=0.1, random_state=0)
+    cv = KFold(n_splits=10, shuffle=True, random_state=0)
     cv_score=cross_val_score(gnb,x_train,y_train,cv=cv)
 
     #Calculating the accuracy of the model by comparing the predicted labels and the true test labels
@@ -60,7 +60,7 @@ def NaiveBayes(x_train,x_test,y_train,y_test,NameOfDR):
 def SupportVectorMachine(x_train,x_test,y_train,y_test,NameOfDR):
 
     #Initializing the Support Vector Machine classifier object
-    SVM=svm.SVC(C=10,gamma=1,kernel='rbf')
+    SVM=svm.SVC()
 
     #predicting the labels using the model trained by train data
     y_pred=SVM.fit(x_train,y_train).predict(x_test)
@@ -69,7 +69,7 @@ def SupportVectorMachine(x_train,x_test,y_train,y_test,NameOfDR):
     (m_test,n_test)=x_test.shape
     
     #cross validation
-    cv = ShuffleSplit(n_splits=4, test_size=0.1, random_state=0)
+    cv = KFold(n_splits=10, shuffle=True, random_state=0)
     cv_score=cross_val_score(SVM,x_train,y_train,cv=cv)
 
     #Calculating the accuracy of the model by comparing the predicted labels and the true test labels
@@ -92,7 +92,7 @@ def DecisionTree(x_train,x_test,y_train,y_test,NameOfDR):
     (m_test,n_test)=x_test.shape
     
     #cross validation
-    cv = ShuffleSplit(n_splits=10, test_size=0.1, random_state=0)
+    cv = KFold(n_splits=10, shuffle=True, random_state=0)
     cv_score=cross_val_score(DT,x_train,y_train,cv=cv)
 
     #Calculating the accuracy of the model by comparing the predicted labels and the true test labels
@@ -120,6 +120,7 @@ DR_datasets={'Conformal Eigenmaps':r"D:\Windsor\Fourth semester\Applied Machine 
 #Data preprocessing (Filling missing values and removing empty columns)
 data=data.fillna(0)
 data=data.loc[:,(data!=0).any(axis=0)]
+data=data.loc[(data!=0).any(axis=1),:]
 
 #Finding the shape of the dataframe
 (m,n)=data.shape
@@ -141,16 +142,16 @@ listOfClassifiers={'Naive Bayes':NaiveBayes, 'Support Vector Machine':SupportVec
 
 for i in listOfClassifiers:
     
-    print("Running the {} classifier on Original and Dimesnion Reduced Datasets:".format(i))
+    print("Running the {} classifier on Original and Dimension Reduced Datasets:".format(i))
     print()
     
     
     ##For the original Dataset
     #Splitting the data into test and train data
-    x_train,x_test,y_train,y_test= train_test_split(x,y,test_size=0.3,random_state=39 )
+    x_train,x_test,y_train,y_test= train_test_split(x,y,test_size=0.2,random_state=39 )
     
     #Run the classifier on original dataset
-    listOfClassifiers[i](x_train,x_test,y_train,y_test,'Original')
+    listOfClassifiers[i](x_train,x_test,y_train.values.ravel(),y_test.values.ravel(),'Original')
     
     #Iterating over the Dimension reduced Datasets
     for j in DR_datasets:
@@ -158,6 +159,8 @@ for i in listOfClassifiers:
         #Reading the dimension Reduced dataset
         #The dataset is already preprocessed, So there is no need to fill missing values or Scale
         data_dr=pd.read_csv(DR_datasets[j],header=None)
+
+        data_dr=data_dr.loc[(data_dr!=0).any(axis=1),:]
         
         #find the shape of Dimesnion Reduced dataset
         (m_dr,n_dr)=data_dr.shape
@@ -166,13 +169,17 @@ for i in listOfClassifiers:
         x_dr=data_dr.loc[:,:n_dr-2]
         y_dr=data_dr.loc[:,n_dr-1]
         #y_dr=y[1:m_dr+1]
+
+        #Scale the data
+        scaler=StandardScaler()
+        x_dr=scaler.fit_transform(x_dr)
         
         ##For the Dimension Reduced Dataset
         #Splitting the data into test and train data
-        x_train,x_test,y_train,y_test= train_test_split(x_dr,y_dr,test_size=0.3,random_state=39 )
+        x_train,x_test,y_train,y_test= train_test_split(x_dr,y_dr,test_size=0.2,random_state=39 )
         
         #Run the classifier on the Dimesion reduced dataset.
-        listOfClassifiers[i](x_train,x_test,y_train,y_test,j)
+        listOfClassifiers[i](x_train,x_test,y_train.ravel(),y_test.ravel(),j)
     
     print()    
     print('-'*40)
