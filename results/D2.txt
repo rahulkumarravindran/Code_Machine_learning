@@ -1,0 +1,198 @@
+--------------------------------------------------
+Running the Naive Bayes classifier on Original and Dimension Reduced Datasets:
+
+Accuracy and the F1-Score for the Original dataset and Naive Bayes Classifier (Fold 2): 0.5269714285714286 and 0.5092898527287819
+Accuracy and the F1-Score for the Original dataset and Naive Bayes Classifier (Fold 3): 0.5223984983726727 and 0.5033516618627191
+Accuracy and the F1-Score for the Original dataset and Naive Bayes Classifier (Fold 4): 0.5276569875673855 and 0.5096580688807247
+Accuracy and the F1-Score for the Original dataset and Naive Bayes Classifier (Fold 5): 0.5256 and 0.508032632158542
+Accuracy and the F1-Score for the Original dataset and Naive Bayes Classifier (Fold 6): 0.5281166391346711 and 0.5105784203641899
+Accuracy and the F1-Score for the Original dataset and Naive Bayes Classifier (Fold 7): 0.5284571428571428 and 0.5116922634048561
+Accuracy and the F1-Score for the Original dataset and Naive Bayes Classifier (Fold 8): 0.5313137156677611 and 0.516641583598768
+Accuracy and the F1-Score for the Original dataset and Naive Bayes Classifier (Fold 9): 0.5294871686425111 and 0.5143715645427167
+Accuracy and the F1-Score for the Original dataset and Naive Bayes Classifier (Fold 10): 0.5313142857142857 and 0.5163555982752568
+Accuracy and the F1-Score for the Original dataset and Naive Bayes Classifier (Fold 11): 0.5300549344779931 and 0.515868749527342
+Naive Bayes completed for Original dataset
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Naive Bayes Classifier (Fold 2): 0.9528000000000001 and 0.9673562262640449
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Naive Bayes Classifier (Fold 3): 0.9547433262183324 and 0.9685035517208308
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Naive Bayes Classifier (Fold 4): 0.9548573756007118 and 0.9686193613700332
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Naive Bayes Classifier (Fold 5): 0.9554285714285713 and 0.9689457392915941
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Naive Bayes Classifier (Fold 6): 0.9554288801701624 and 0.9689159042327863
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Naive Bayes Classifier (Fold 7): 0.9550857142857143 and 0.9689015035349674
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Naive Bayes Classifier (Fold 8): 0.9550878241292854 and 0.9687991457581702
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Naive Bayes Classifier (Fold 9): 0.9550867242713765 and 0.9687696359105689
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Naive Bayes Classifier (Fold 10): 0.9554285714285713 and 0.9689873645806856
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Naive Bayes Classifier (Fold 11): 0.9553156002999561 and 0.9689167820477482
+Naive Bayes completed for Conformal Eigenmaps dataset
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Naive Bayes Classifier (Fold 2): 0.9718857142857142 and 0.9807348022218569
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Naive Bayes Classifier (Fold 3): 0.9995428701936317 and 0.9995424151656008
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Naive Bayes Classifier (Fold 4): 0.99965711671678 and 0.9996570463605886
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Naive Bayes Classifier (Fold 5): 0.9995428571428573 and 0.9995417605334623
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Naive Bayes Classifier (Fold 6): 0.9995429093280658 and 0.9995411836473708
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Naive Bayes Classifier (Fold 7): 0.9996571428571429 and 0.9996559861511688
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Naive Bayes Classifier (Fold 8): 0.9996572212065814 and 0.9996563604124733
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Naive Bayes Classifier (Fold 9): 0.9995427526291724 and 0.9995417406382278
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Naive Bayes Classifier (Fold 10): 0.9995428571428573 and 0.9995352380952381
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Naive Bayes Classifier (Fold 11): 0.9996570904838659 and 0.9996572913479909
+Naive Bayes completed for Maximum Variance Unfolding dataset
+Accuracy and the F1-Score for the Landmark MVU dataset and Naive Bayes Classifier (Fold 2): 0.21224489795918366 and 0.18160033748676163
+Accuracy and the F1-Score for the Landmark MVU dataset and Naive Bayes Classifier (Fold 3): 0.2061324754351838 and 0.18415099311151525
+Accuracy and the F1-Score for the Landmark MVU dataset and Naive Bayes Classifier (Fold 4): 0.2082333733173397 and 0.18828047082787294
+Accuracy and the F1-Score for the Landmark MVU dataset and Naive Bayes Classifier (Fold 5): 0.2 and 0.17721109435896992
+Accuracy and the F1-Score for the Landmark MVU dataset and Naive Bayes Classifier (Fold 6): 0.20189701897018972 and 0.18729524185018334
+Accuracy and the F1-Score for the Landmark MVU dataset and Naive Bayes Classifier (Fold 7): 0.20408163265306123 and 0.19094914156138643
+Accuracy and the F1-Score for the Landmark MVU dataset and Naive Bayes Classifier (Fold 8): 0.2020095187731359 and 0.1841690892176746
+Accuracy and the F1-Score for the Landmark MVU dataset and Naive Bayes Classifier (Fold 9): 0.20231949120838005 and 0.18617414748993696
+Accuracy and the F1-Score for the Landmark MVU dataset and Naive Bayes Classifier (Fold 10): 0.2 and 0.18259750076076603
+Accuracy and the F1-Score for the Landmark MVU dataset and Naive Bayes Classifier (Fold 11): 0.2064279155188246 and 0.1895410247781789
+Naive Bayes completed for Landmark MVU dataset
+
+----------------------------------------
+
+Running the Support Vector Machine classifier on Original and Dimension Reduced Datasets:
+
+Accuracy and the F1-Score for the Original dataset and SVM classifier (Fold 2): 0.21851428571428572 and 0.2480349798777966
+Accuracy and the F1-Score for the Original dataset and SVM classifier (Fold 3): 0.30033918130305 and 0.3519199789300178
+Accuracy and the F1-Score for the Original dataset and SVM classifier (Fold 4): 0.3753110661387006 and 0.42635713656449903
+Accuracy and the F1-Score for the Original dataset and SVM classifier (Fold 5): 0.3784 and 0.43423913820200094
+Accuracy and the F1-Score for the Original dataset and SVM classifier (Fold 6): 0.39234527472920083 and 0.44782099755237925
+Accuracy and the F1-Score for the Original dataset and SVM classifier (Fold 7): 0.4049142857142857 and 0.4611216825242969
+Accuracy and the F1-Score for the Original dataset and SVM classifier (Fold 8): 0.4091404123966541 and 0.4652204428021168
+Accuracy and the F1-Score for the Original dataset and SVM classifier (Fold 9): 0.41199350924903816 and 0.4674014986766352
+Accuracy and the F1-Score for the Original dataset and SVM classifier (Fold 10): 0.41405714285714285 and 0.4700985067031838
+Accuracy and the F1-Score for the Original dataset and SVM classifier (Fold 11): 0.41336844313046084 and 0.47226643434909266
+SVM classifier completed for Original dataset
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and SVM classifier (Fold 2): 0.9954285714285714 and 0.9950249782777072
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and SVM classifier (Fold 3): 0.9966857403245625 and 0.996486084034681
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and SVM classifier (Fold 4): 0.9963430136864921 and 0.9960969091962097
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and SVM classifier (Fold 5): 0.9962285714285715 and 0.9959600048424774
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and SVM classifier (Fold 6): 0.996914442090827 and 0.99672155722069
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and SVM classifier (Fold 7): 0.9964571428571428 and 0.9962398503874782
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and SVM classifier (Fold 8): 0.9967999994982195 and 0.9965970492561336
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and SVM classifier (Fold 9): 0.9968003257593807 and 0.996609880641095
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and SVM classifier (Fold 10): 0.9966857142857142 and 0.9964361834930513
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and SVM classifier (Fold 11): 0.9968000379254764 and 0.9965840405021972
+SVM classifier completed for Conformal Eigenmaps dataset
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and SVM classifier (Fold 2): 0.9947428571428572 and 0.9942576747812253
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and SVM classifier (Fold 3): 0.9962285713300413 and 0.9959817518555413
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and SVM classifier (Fold 4): 0.9960000259134708 and 0.9957074611500067
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and SVM classifier (Fold 5): 0.9961142857142857 and 0.9958216164021663
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and SVM classifier (Fold 6): 0.9970286755840875 and 0.9968556535910621
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and SVM classifier (Fold 7): 0.9964571428571427 and 0.9961608098426097
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and SVM classifier (Fold 8): 0.9966857399004133 and 0.9963844505269611
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and SVM classifier (Fold 9): 0.9965718195578752 and 0.9962502079205104
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and SVM classifier (Fold 10): 0.9965714285714287 and 0.9962698953905876
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and SVM classifier (Fold 11): 0.996342777351595 and 0.9959962600059569
+SVM classifier completed for Maximum Variance Unfolding dataset
+Accuracy and the F1-Score for the Landmark MVU dataset and SVM classifier (Fold 2): 0.17346938775510204 and 0.1474195191230005
+Accuracy and the F1-Score for the Landmark MVU dataset and SVM classifier (Fold 3): 0.18369993515886077 and 0.17112322701143848
+Accuracy and the F1-Score for the Landmark MVU dataset and SVM classifier (Fold 4): 0.187791550046648 and 0.17072454669484485
+Accuracy and the F1-Score for the Landmark MVU dataset and SVM classifier (Fold 5): 0.19387755102040818 and 0.17567429782217334
+Accuracy and the F1-Score for the Landmark MVU dataset and SVM classifier (Fold 6): 0.1938422161999398 and 0.18103073966267783
+Accuracy and the F1-Score for the Landmark MVU dataset and SVM classifier (Fold 7): 0.18571428571428572 and 0.17570015018994609
+Accuracy and the F1-Score for the Landmark MVU dataset and SVM classifier (Fold 8): 0.19801031200423058 and 0.1868581753166629
+Accuracy and the F1-Score for the Landmark MVU dataset and SVM classifier (Fold 9): 0.19214365881032547 and 0.17938904031496622
+Accuracy and the F1-Score for the Landmark MVU dataset and SVM classifier (Fold 10): 0.19183673469387758 and 0.1808697764820214
+Accuracy and the F1-Score for the Landmark MVU dataset and SVM classifier (Fold 11): 0.1898989898989899 and 0.1778911931283473
+SVM classifier completed for Landmark MVU dataset
+
+----------------------------------------
+
+Running the Decision Tree classifier on Original and Dimension Reduced Datasets:
+
+Accuracy and the F1-Score for the Original dataset and Decision Tree Classifier (Fold 2): 0.8601142857142857 and 0.8604956145503779
+Accuracy and the F1-Score for the Original dataset and Decision Tree Classifier (Fold 3): 0.8886852280570247 and 0.8888401592575376
+Accuracy and the F1-Score for the Original dataset and Decision Tree Classifier (Fold 4): 0.8962300288642627 and 0.8963903511154474
+Accuracy and the F1-Score for the Original dataset and Decision Tree Classifier (Fold 5): 0.9026285714285714 and 0.9026631892281772
+Accuracy and the F1-Score for the Original dataset and Decision Tree Classifier (Fold 6): 0.9061734819716355 and 0.9063549268294548
+Accuracy and the F1-Score for the Original dataset and Decision Tree Classifier (Fold 7): 0.9082285714285715 and 0.9080101286518838
+Accuracy and the F1-Score for the Original dataset and Decision Tree Classifier (Fold 8): 0.9072016580499807 and 0.9074899486277528
+Accuracy and the F1-Score for the Original dataset and Decision Tree Classifier (Fold 9): 0.9105173239421396 and 0.9104603361145158
+Accuracy and the F1-Score for the Original dataset and Decision Tree Classifier (Fold 10): 0.9092571428571429 and 0.9093741630330274
+Accuracy and the F1-Score for the Original dataset and Decision Tree Classifier (Fold 11): 0.9136034661586951 and 0.9136495499127849
+Decision Tree completed for Original dataset
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Decision Tree Classifier (Fold 2): 0.9987428571428572 and 0.9987397772865751
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Decision Tree Classifier (Fold 3): 0.9988571167018497 and 0.9988557073912934
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Decision Tree Classifier (Fold 4): 0.9986286236018219 and 0.9986265015452208
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Decision Tree Classifier (Fold 5): 0.9990857142857144 and 0.9990872862563094
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Decision Tree Classifier (Fold 6): 0.9987430398269042 and 0.9987421856087608
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Decision Tree Classifier (Fold 7): 0.9987428571428572 and 0.9987378017099192
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Decision Tree Classifier (Fold 8): 0.9986283621383208 and 0.9986274195547544
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Decision Tree Classifier (Fold 9): 0.9988572340246556 and 0.9988629704722215
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Decision Tree Classifier (Fold 10): 0.9989714285714285 and 0.9989748841008856
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and Decision Tree Classifier (Fold 11): 0.9985144418490393 and 0.9985005815813786
+Decision Tree completed for Conformal Eigenmaps dataset
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Decision Tree Classifier (Fold 2): 0.9993142857142857 and 0.9992961592505855
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Decision Tree Classifier (Fold 3): 0.9996571036600325 and 0.9996532901085579
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Decision Tree Classifier (Fold 4): 0.9996570644718792 and 0.999652186854209
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Decision Tree Classifier (Fold 5): 0.9996571428571428 and 0.9996510415961477
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Decision Tree Classifier (Fold 6): 0.9998856881572932 and 0.9998843791248714
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Decision Tree Classifier (Fold 7): 0.9998857142857143 and 0.9998841050422627
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Decision Tree Classifier (Fold 8): 0.9998857404021938 and 0.9998834819438824
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Decision Tree Classifier (Fold 9): 0.9998856881572932 and 0.9998837473613583
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Decision Tree Classifier (Fold 10): 0.9998857142857144 and 0.9998832633678966
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and Decision Tree Classifier (Fold 11): 0.9998856489422526 and 0.9998835683848544
+Decision Tree completed for Maximum Variance Unfolding dataset
+Accuracy and the F1-Score for the Landmark MVU dataset and Decision Tree Classifier (Fold 2): 0.22653061224489796 and 0.20142251245437354
+Accuracy and the F1-Score for the Landmark MVU dataset and Decision Tree Classifier (Fold 3): 0.23882737293630607 and 0.22201212751282637
+Accuracy and the F1-Score for the Landmark MVU dataset and Decision Tree Classifier (Fold 4): 0.2428528588564574 and 0.23439690489212786
+Accuracy and the F1-Score for the Landmark MVU dataset and Decision Tree Classifier (Fold 5): 0.24693877551020407 and 0.23617228056505407
+Accuracy and the F1-Score for the Landmark MVU dataset and Decision Tree Classifier (Fold 6): 0.23655023587272908 and 0.22858288708995142
+Accuracy and the F1-Score for the Landmark MVU dataset and Decision Tree Classifier (Fold 7): 0.2510204081632653 and 0.24662455458373828
+Accuracy and the F1-Score for the Landmark MVU dataset and Decision Tree Classifier (Fold 8): 0.24279481755684823 and 0.23595039666397413
+Accuracy and the F1-Score for the Landmark MVU dataset and Decision Tree Classifier (Fold 9): 0.24096520763187426 and 0.23489076694729713
+Accuracy and the F1-Score for the Landmark MVU dataset and Decision Tree Classifier (Fold 10): 0.2489795918367347 and 0.23867621796193222
+Accuracy and the F1-Score for the Landmark MVU dataset and Decision Tree Classifier (Fold 11): 0.24687786960514238 and 0.23650853538205316
+Decision Tree completed for Landmark MVU dataset
+
+----------------------------------------
+
+Running the MLP classifier on Original and Dimension Reduced Datasets:
+
+Accuracy and the F1-Score for the Original dataset and MLP Classifier (Fold 2): 0.2860571428571429 and 0.24026324961114814
+Accuracy and the F1-Score for the Original dataset and MLP Classifier (Fold 3): 0.3258314276134462 and 0.28020953259661957
+Accuracy and the F1-Score for the Original dataset and MLP Classifier (Fold 4): 0.32822869306664193 and 0.29080943294375333
+Accuracy and the F1-Score for the Original dataset and MLP Classifier (Fold 5): 0.3299428571428572 and 0.295980086439648
+Accuracy and the F1-Score for the Original dataset and MLP Classifier (Fold 6): 0.331086897998109 and 0.2993397153450033
+Accuracy and the F1-Score for the Original dataset and MLP Classifier (Fold 7): 0.3314285714285714 and 0.29535237429470423
+Accuracy and the F1-Score for the Original dataset and MLP Classifier (Fold 8): 0.3281090318814594 and 0.28899259526387894
+Accuracy and the F1-Score for the Original dataset and MLP Classifier (Fold 9): 0.32045498228107694 and 0.28323369552313304
+Accuracy and the F1-Score for the Original dataset and MLP Classifier (Fold 10): 0.32571428571428573 and 0.2939462523401426
+Accuracy and the F1-Score for the Original dataset and MLP Classifier (Fold 11): 0.31578188254020245 and 0.27769891892686593
+MLP completed for Original dataset
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and MLP Classifier (Fold 2): 0.9902857142857143 and 0.9894007612208549
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and MLP Classifier (Fold 3): 0.9873145205117847 and 0.9838432133770064
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and MLP Classifier (Fold 4): 0.9932569074028098 and 0.9927501180648115
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and MLP Classifier (Fold 5): 0.9906285714285714 and 0.9886556046498585
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and MLP Classifier (Fold 6): 0.993142934775966 and 0.9925348850045551
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and MLP Classifier (Fold 7): 0.9918857142857143 and 0.9910232753923037
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and MLP Classifier (Fold 8): 0.9932568020526167 and 0.9920551977963233
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and MLP Classifier (Fold 9): 0.9948570244333634 and 0.9945092583443089
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and MLP Classifier (Fold 10): 0.9937142857142858 and 0.9932950467850097
+Accuracy and the F1-Score for the Conformal Eigenmaps dataset and MLP Classifier (Fold 11): 0.9894860235999896 and 0.9867374466997572
+MLP completed for Conformal Eigenmaps dataset
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and MLP Classifier (Fold 2): 0.9885714285714287 and 0.9850853517270468
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and MLP Classifier (Fold 3): 0.9853716502554519 and 0.9811109331731095
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and MLP Classifier (Fold 4): 0.9890279961614626 and 0.9855880015126977
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and MLP Classifier (Fold 5): 0.9881142857142857 and 0.9827351802437704
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and MLP Classifier (Fold 6): 0.9901713753117134 and 0.9868135963806502
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and MLP Classifier (Fold 7): 0.992 and 0.989855023825512
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and MLP Classifier (Fold 8): 0.9904005211826632 and 0.9874164289216707
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and MLP Classifier (Fold 9): 0.9905144667334915 and 0.9869016297445141
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and MLP Classifier (Fold 10): 0.9906285714285715 and 0.9872241326331765
+Accuracy and the F1-Score for the Maximum Variance Unfolding dataset and MLP Classifier (Fold 11): 0.9923426451870558 and 0.9905778703691066
+MLP completed for Maximum Variance Unfolding dataset
+Accuracy and the F1-Score for the Landmark MVU dataset and MLP Classifier (Fold 2): 0.026530612244897958 and 0.013099254007809737
+Accuracy and the F1-Score for the Landmark MVU dataset and MLP Classifier (Fold 3): 0.038804927926579885 and 0.012613387279834251
+Accuracy and the F1-Score for the Landmark MVU dataset and MLP Classifier (Fold 4): 0.03873450619752099 and 0.01686728479321455
+Accuracy and the F1-Score for the Landmark MVU dataset and MLP Classifier (Fold 5): 0.055102040816326525 and 0.03787351305628566
+Accuracy and the F1-Score for the Landmark MVU dataset and MLP Classifier (Fold 6): 0.04298404095152062 and 0.022755565100993188
+Accuracy and the F1-Score for the Landmark MVU dataset and MLP Classifier (Fold 7): 0.05510204081632653 and 0.02735549499302827
+Accuracy and the F1-Score for the Landmark MVU dataset and MLP Classifier (Fold 8): 0.04280142781597039 and 0.02591514643025957
+Accuracy and the F1-Score for the Landmark MVU dataset and MLP Classifier (Fold 9): 0.04500561167227834 and 0.025161983231841708
+Accuracy and the F1-Score for the Landmark MVU dataset and MLP Classifier (Fold 10): 0.055102040816326525 and 0.03584866180904596
+Accuracy and the F1-Score for the Landmark MVU dataset and MLP Classifier (Fold 11): 0.06955922865013774 and 0.04474934900165466
+MLP completed for Landmark MVU dataset
+
+----------------------------------------
+
+Time Taken: 82.63905615409216 mins
